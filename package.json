@@ -1,0 +1,25 @@
+{
+	"name": "sweetreaction",
+	"description": "A collection of React macros for Sweet.js",
+	"version": "0.1.0",
+	"author": "Greg V <floatboth@me.com>",
+	"engines": {
+		"node": "*"
+	},
+	"main": "index",
+	"keywords": [
+		"sweet-macros",
+		"react"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/myfreeweb/sweetreaction.git"
+	},
+	"license": [{
+		"type": "WTFPL",
+		"url": "https://github.com/myfreeweb/sweetreaction/blob/master/COPYING"
+	}],
+	"bugs": {
+		"url": "https://github.com/myfreeweb/sweetreaction/issues"
+	}
+}
