@@ -13,9 +13,9 @@ You can use it together with [jsx-reader] or [react.hiccup] -- or both if you wa
 
 Something like this:
 
-```shell
+```bash
 $ npm install sweet.js jsx-reader sweetreaction
-$ sjs -l jsx-reader -m sweetreaction example.js
+$ sjs -r -l jsx-reader -m sweetreaction example.js
 ```
 
 Basically, the `sweetreaction` npm module has the exported macros, use it with your usual Sweet.js setup.
@@ -59,7 +59,7 @@ mount <TickTock /> to document.getElementById('example');
 compiles to:
 
 ```js
-var SetIntervalMixin$733 = {
+var SetIntervalMixin = {
 	componentWillMount: function () {
 		this.intervals = [];
 	},
@@ -70,8 +70,8 @@ var SetIntervalMixin$733 = {
 		this.intervals.map(clearInterval);
 	}
 };
-var TickTock$735 = React.createClass({
-	mixins: [SetIntervalMixin$733],
+var TickTock = React.createClass({
+	mixins: [SetIntervalMixin],
 	getInitialState: function () {
 		return { seconds: 0 };
 	},
@@ -79,18 +79,18 @@ var TickTock$735 = React.createClass({
 		this.setInterval(this.tick, 1000); // Call a method on the mixin
 	},
 	tick: function () {
-		this.setState({ seconds: TickTock$735.increment(this.state.seconds) });
+		this.setState({ seconds: TickTock.increment(this.state.seconds) });
 	},
 	render: function () {
 		return React.DOM.p(null, 'React has been running for ', this.state.seconds, ' seconds.');
 	},
 	statics: {
-		increment: function (n$737) {
-			return n$737 + 1;
+		increment: function (n) {
+			return n + 1;
 		}
 	}
 });
-React.renderComponent(TickTock$735(null), document.getElementById('example'));
+React.renderComponent(TickTock(null), document.getElementById('example'));
 ```
 
 ## License
