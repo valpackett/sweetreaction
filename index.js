@@ -1,6 +1,7 @@
 macro _component_part {
 	rule { render { $body:expr } } => { render: function () { return $body; } }
 	rule { initialState $body:expr } => { getInitialState: function () { return $body; } }
+	rule { defaultProps $body:expr } => { getDefaultProps: function () { return $body; } }
 	rule { statics { $($part:_component_part) ... } } => { statics: { $part (,) ... } }
 	rule { $name:ident: $body:expr } => { $name: $body }
 	rule { $name:ident = $body:expr } => { $name: $body }

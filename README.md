@@ -37,6 +37,7 @@ mixin SetIntervalMixin {
 
 component TickTock uses SetIntervalMixin {
 	initialState {seconds: 0}
+	defaultProps {name: "React"}
 	componentDidMount() {
 		this.setInterval(this.tick, 1000); // Call a method on the mixin
 	}
@@ -45,7 +46,7 @@ component TickTock uses SetIntervalMixin {
 	}
 	render {
 		<p>
-			React has been running for {this.state.seconds} seconds.
+			{this.props.name} has been running for {this.state.seconds} seconds.
 		</p>
 	}
 	statics {
@@ -75,6 +76,9 @@ var TickTock = React.createClass({
 	getInitialState: function () {
 		return { seconds: 0 };
 	},
+	getDefaultProps: function () {
+		return { name: 'React' };
+	},
 	componentDidMount: function () {
 		this.setInterval(this.tick, 1000); // Call a method on the mixin
 	},
@@ -82,7 +86,7 @@ var TickTock = React.createClass({
 		this.setState({ seconds: TickTock.increment(this.state.seconds) });
 	},
 	render: function () {
-		return React.DOM.p(null, 'React has been running for ', this.state.seconds, ' seconds.');
+		return React.DOM.p(null, this.props.name, ' has been running for ', this.state.seconds, ' seconds.');
 	},
 	statics: {
 		increment: function (n) {
