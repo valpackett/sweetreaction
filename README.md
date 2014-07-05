@@ -97,6 +97,17 @@ var TickTock = React.createClass({
 React.renderComponent(TickTock(null), document.getElementById('example'));
 ```
 
+Note: if you need to do something fancy in `render`, you have to use a normal method macro:
+
+```js
+component Something {
+	render() {
+		this.text = this.props.name + '!';
+		return <p>{this.text}</p>;
+	}
+}
+```
+
 ## License
 
 Copyright © 2014 [myfreeweb](https://github.com/myfreeweb)
