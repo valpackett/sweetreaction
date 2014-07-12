@@ -12,16 +12,16 @@ macro component {
 	case {
 		$macro_name $n:ident { $($part:_component_part) ... }
 	} => {
-		var React = makeIdent("React", #{$macro_name});
-		letstx $React = [React];
-		return #{var $n = $React.createClass({ $part (,) ... });}
+		letstx $compName = [makeValue(#{$n}[0].token.value, #{macro_name})];
+		letstx $React = [makeIdent("React", #{$macro_name})];
+		return #{var $n = $React.createClass({ displayName: $compName, $part (,) ... });}
 	}
 	case {
 		$macro_name $n:ident uses $($mixin:ident) (,) ... { $($part:_component_part) ... }
 	} => {
-		var React = makeIdent("React", #{$macro_name});
-		letstx $React = [React];
-		return #{var $n = $React.createClass({ mixins: [$mixin (,) ...], $part (,) ... });}
+		letstx $compName = [makeValue(#{$n}[0].token.value, #{macro_name})];
+		letstx $React = [makeIdent("React", #{$macro_name})];
+		return #{var $n = $React.createClass({ displayName: $compName, mixins: [$mixin (,) ...], $part (,) ... });}
 	}
 }
 export component;
