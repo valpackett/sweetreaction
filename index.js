@@ -1,5 +1,5 @@
 macro _component_part {
-	rule { render { $body:expr } } => { render: function () { return $body; } }
+	rule { render { $pre:expr (;) ... $body:expr } } => { render: function () { $pre (;) ... return $body; } }
 	rule { initialState $body:expr } => { getInitialState: function () { return $body; } }
 	rule { defaultProps $body:expr } => { getDefaultProps: function () { return $body; } }
 	rule { statics { $($part:_component_part) ... } } => { statics: { $part (,) ... } }

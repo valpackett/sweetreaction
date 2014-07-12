@@ -45,8 +45,9 @@ component TickTock uses SetIntervalMixin {
 		this.setState({seconds: TickTock.increment(this.state.seconds)});
 	}
 	render {
+    this.unit = 'seconds';
 		<p>
-			{this.props.name} has been running for {this.state.seconds} seconds.
+			{this.props.name} has been running for {this.state.seconds} {this.unit}.
 		</p>
 	}
 	statics {
@@ -87,7 +88,8 @@ var TickTock = React.createClass({
 		this.setState({ seconds: TickTock.increment(this.state.seconds) });
 	},
 	render: function () {
-		return React.DOM.p(null, this.props.name, ' has been running for ', this.state.seconds, ' seconds.');
+    this.unit = 'seconds';
+		return React.DOM.p(null, this.props.name, ' has been running for ', this.state.seconds, ' ', this.unit, '.');
 	},
 	statics: {
 		increment: function (n) {
@@ -96,17 +98,6 @@ var TickTock = React.createClass({
 	}
 });
 React.renderComponent(TickTock(null), document.getElementById('example'));
-```
-
-Note: if you need to do something fancy in `render`, you have to use a normal method macro:
-
-```js
-component Something {
-	render() {
-		this.text = this.props.name + '!';
-		return <p>{this.text}</p>;
-	}
-}
 ```
 
 ## License
