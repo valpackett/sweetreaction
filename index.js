@@ -39,8 +39,7 @@ macro mount {
 	case {
 		$macro_name $what:expr to $where:expr
 	} => {
-		var React = makeIdent("React", #{$macro_name});
-		letstx $React = [React];
+		letstx $React = [makeIdent("React", #{$macro_name})];
 		return #{$React.renderComponent($what, $where)}
 	}
 }
