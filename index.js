@@ -17,7 +17,7 @@ macro component {
 		return #{var $n = $React.createClass({ displayName: $compName, $part (,) ... });}
 	}
 	case {
-		$macro_name $n:ident uses $($mixin:ident) (,) ... { $($part:_component_part) ... }
+		$macro_name $n:ident uses $($mixin:expr) (,) ... { $($part:_component_part) ... }
 	} => {
 		letstx $compName = [makeValue(#{$n}[0].token.value, #{macro_name})];
 		letstx $React = [makeIdent("React", #{$macro_name})];
