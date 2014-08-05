@@ -1,4 +1,4 @@
-# sweetreaction
+# sweetreaction [![npm version](https://img.shields.io/npm/v/sweetreaction.svg?style=flat) ![npm downloads](https://img.shields.io/npm/dm/sweetreaction.svg?style=flat)](https://www.npmjs.org/package/sweetreaction) [![WTFPL](https://img.shields.io/badge/license-WTFPL-brightgreen.svg?style=flat)](https://www.tldrlegal.com/l/wtfpl)
 
 A collection of [Sweet.js] macros for the excellent [React] library.
 
