@@ -1,7 +1,7 @@
 {
 	"name": "sweetreaction",
 	"description": "A collection of React macros for Sweet.js",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Greg V <floatboth@me.com>",
 	"engines": {
 		"node": "*"
